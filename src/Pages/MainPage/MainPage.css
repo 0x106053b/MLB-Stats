@@ -12,5 +12,5 @@ body {
 h4{
     line-height : 1.5;
     margin : 0;
-    text-shadow: -3px 0 #000814, 0 3px #000814, 3px 0 #000814, 0 -3px #000814;
+    text-shadow: -1px 0 #000814, 0 1px #000814, 1px 0 #000814, 0 -1px #000814;
 }

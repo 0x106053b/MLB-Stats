@@ -1,65 +1,68 @@
 import React, { useEffect } from 'react'
-import './Ball.css'
 
 const Ball = () => {
+
     const BallMoving = () => {
         const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const ctx = canvas.getContext("2d");
+        let img = new Image();
+        img.src = "/images/baseball.png";
+        const radius = 200;
+        img.onload = () => {
+            ctx.drawImage(img, 100, 100, radius, radius);
+        }
+
 
         class ball {
             constructor(stageWidth, stageHeight, radius, speed) {
-                this.radius = radius;
+                this.radius = radius; // radius = 200
                 this.vx = speed;
                 this.vy = speed;
                 this.x = this.radius + Math.random() * (stageWidth - this.radius * 2);
                 this.y = this.radius + Math.random() * (stageHeight - this.radius * 2);
             }
-    
-            draw(ctx, color, canvasWidth, canvasHeight) {
+
+            draw(ctx, canvasWidth, canvasHeight) {
                 this.x += this.vx;
                 this.y += this.vy;
-    
-                this.bounceWindow(canvasWidth, canvasHeight);
 
-                ctx.fillStyle = color;
+                this.bounceWindow(canvasWidth, canvasHeight);
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+                ctx.drawImage(img, this.x, this.y, this.radius, this.radius);
                 ctx.closePath();
-                ctx.fill();
             }
-    
+
             bounceWindow(stageWidth, stageHeight) {
-                if (this.x <= this.radius || this.x >= stageWidth - this.radius) {
+                if (this.x <= 0 || this.x >= stageWidth - this.radius) {
                     this.vx *= -1;
                     this.x += this.vx;
                 }
-                if (this.y <= this.radius || this.y >= stageHeight - this.radius) {
+                if (this.y <= 0 || this.y >= stageHeight - this.radius) {
                     this.vy *= -1;
                     this.y += this.vy;
                 }
             }
         }
 
-        let ball_ = new ball(document.body.clientWidth, document.body.clientHeight, 100, 7);
+        let baseball = new ball(document.body.clientWidth, document.body.clientHeight, radius, 5);
 
         const animate = () => {
-            ctx.fillStyle="#000814";
+            ctx.fillStyle = "#000814";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ball_.bounceWindow(canvas.width, canvas.height);
-            ball_.draw(ctx, "#ffc300", canvas.width, canvas.height);
+            baseball.bounceWindow(canvas.width, canvas.height);
+            baseball.draw(ctx, canvas.width, canvas.height);
 
-            // 화면 크기가 변하면 캔버스 크기를 변경
             window.addEventListener("resize", () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
 
                 // resize 되는 경우 캔버스 중앙으로 공을 소환하여
                 // 캔버스 밖으로 공이 빠져나가지 않도록 설계
-                ball_.x = canvas.width * 0.5;
-                ball_.y = canvas.height * 0.5;
+                baseball.x = canvas.width * 0.5;
+                baseball.y = canvas.height * 0.5;
             });
             requestAnimationFrame(animate);
         }
@@ -68,7 +71,7 @@ const Ball = () => {
 
     useEffect(() => { BallMoving() }, []);
 
-    return(
+    return (
         <canvas id="canvas"></canvas>
     );
 }
