@@ -6,11 +6,18 @@
 }
 
 body {
-    font-family : 'LINESeedKR-Bd';
+    font-family: 'LINESeedKR-Bd';
 }
 
 h4{
-    line-height : 1.5;
     margin : 0;
-    text-shadow: -1px 0 #000814, 0 1px #000814, 1px 0 #000814, 0 -1px #000814;
+    padding : 0;
+    line-height: 1.5;
+}
+
+.MLBLogo {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    height: 60px;
 }
