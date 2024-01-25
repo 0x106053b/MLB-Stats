@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import MainPage from './Pages/MainPage/MainPage'
+import Nav from './Components/Nav/Nav'
+import {Routes, Route, Outlet} from 'react-router-dom'
+import './App.css'
+import LeaguePage from './Pages/LeaguePage/LeaguePage';
 
-function App() {
+const Layout = () => {
+  return(<div>
+    <Nav />
+    <Outlet />
+  </div>)
+}
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<MainPage/>}></Route>
+          <Route path="/league" element={<LeaguePage/>}></Route>
+        </Route>
+      </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
