@@ -7,6 +7,7 @@ import Nav from './Components/Nav/Nav'
 import TeamPage from './Pages/TeamPage/TeamPage';
 import PlayerPage from './Pages/PlayerPage/PlayerPage';
 import PlayByPlayPage from './Pages/PlayByPlayPage/PlayByPlayPage';
+import { AnimatePresence } from 'framer-motion';
 
 
 const MainLayout = () => {
@@ -18,7 +19,7 @@ const MainLayout = () => {
 }
 
 const MenuLayout = () => {
-  return(
+  return (
     <div>
       <Nav />
       <Outlet />
@@ -29,18 +30,20 @@ const MenuLayout = () => {
 const App = () => {
   return (
     <div className="app">
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Navigate replace to="/main" />} />
-          <Route path="/main" element={<MainPage />} />
-        </Route>
-        <Route element={<MenuLayout />}>
-          <Route path="/league" element={<LeaguePage />}/>
-          <Route path="/team" element={<TeamPage teamkey={135}/>}/>
-          <Route path="/players" element={<PlayerPage />}/>
-          <Route path="/play-by-play" element={<PlayByPlayPage />}/>
-        </Route>
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Navigate replace to="/main" />} />
+            <Route path="/main" element={<MainPage />} />
+          </Route>
+          <Route element={<MenuLayout />}>
+            <Route path="/league/:date" element={<LeaguePage />}></Route>
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/players" element={<PlayerPage />} />
+            <Route path="/play-by-play" element={<PlayByPlayPage />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
     </div>
   )
 }

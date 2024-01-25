@@ -21,9 +21,20 @@ const Nav = () => {
   //   const current = new URL(window.location.href);
   // }, []);
 
+  const refmap = {
+    "league" : "League Schedule",
+    "team" : "Team",
+    "players" : "Players",
+    "play-by-play" : "Play by Play"
+  }
+
+  const current = new URL(window.location.href);
+  const title = refmap[current.pathname.split("/")[1]];
+
   return (
     <div>
       <NavWrapper>
+        <Title>{title}</Title>
         <Logo>
           <img src="/images/MLBLogo.png" alt="MLB Logo"
             onClick={() => { window.location.href = "/" }}></img>
@@ -38,14 +49,23 @@ export default Nav
 const NavWrapper = styled.nav`
     position : fixed;
     display : flex;
-    flex-direction : column;
-    align-items : flex-end;
+    flex-direction : row;
+    justify-content : space-between;
+    align-items : center;
     top : 0;
     bottom : 0;
     left : 0;
     right : 0;
     background-color : #000814;
-    height : 100px;
+    height : 60px;
+    box-shadow : 0px 4px 10px 1px gray;
+    z-index : 99;
+`;
+
+const Title = styled.h1`
+  margin-left : 20px;
+  color : white;
+  font-size : 20px;
 `;
 
 
