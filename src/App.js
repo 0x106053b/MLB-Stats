@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/main" element={<MainPage />} />
           </Route>
           <Route element={<MenuLayout />}>
-            <Route path="/league/:date" element={<LeaguePage />}></Route>
+            <Route path="/league" element={<LeaguePage />}></Route>
             <Route path="/team" element={<TeamPage />} />
             <Route path="/players" element={<PlayerPage />} />
             <Route path="/play-by-play" element={<PlayByPlayPage />} />

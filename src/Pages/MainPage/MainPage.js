@@ -12,15 +12,17 @@ const MainPage = () => {
     finally: { x: 0 }
   }
 
+  // 메인페이지에서 클릭을 통해 league schedule 페이지로 이동하는 경우
+  // 클릭 당시의 날짜를 받아서 페이지를 이동할 수 있도록 초기 설정한다.
   const [date, setDate] = useState({ "MM": 0, "dd": 0, "yyyy": 0 });
   useEffect(() => {
     let nowDate = new Date();
     setDate({
-      "MM": nowDate.getMonth() + 1,
-      "dd": nowDate.getDate(),
-      "yyyy": nowDate.getFullYear()
+      "MM": (nowDate.getMonth() + 1).toString().padStart(2, "0"),
+      "dd": nowDate.getDate().toString(),
+      "yyyy": nowDate.getFullYear().toString()
     })
-  }, []);
+  }, [date]);
 
   return (
     <MainContainer>
@@ -29,7 +31,7 @@ const MainPage = () => {
       <Ball>
       </Ball>
       <MenuBar>
-        <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate(`/league/${date.MM}-${date.dd}-${date.yyyy}`) }}>League Schedule</motion.h4></Menu>
+        <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate(`/league?date=${date.MM}-${date.dd}-${date.yyyy}`) }}>League Schedule</motion.h4></Menu>
         <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/team") }}>Team Roster</motion.h4></Menu>
         <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/players") }}>Players</motion.h4></Menu>
         {/* <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/play-by-play") }}>Play by Play</motion.h4></Menu> */}

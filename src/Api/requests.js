@@ -2,7 +2,10 @@ const getTeam = (TeamKey) => {
     return(`/teams/${TeamKey}/roster/depthChart`);
 }
 
-const getSchedule = (MM, dd, yyyy) => {
+const getSchedule = (date) => {
+    const MM = date.getMonth() + 1;
+    const dd = date.getDate();
+    const yyyy = date.getFullYear();
     return(`schedule?sportId=1&date=${MM}/${dd}/${yyyy}`)
 }
 
@@ -15,4 +18,5 @@ const requests = {
     fetchTeam : getTeam,
     fetchPlayer : getPlayer,
 }
+
 export default requests
