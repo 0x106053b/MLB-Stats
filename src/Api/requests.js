@@ -1,8 +1,13 @@
-const getTeam = (TeamKey) => {
+const getRoster = (TeamKey) => {
     return(`/teams/${TeamKey}/roster/depthChart`);
 }
 
-const getSchedule = (date) => {
+const getTeam = (TeamKey) => {
+    return (`/teams/${TeamKey}`);
+}
+
+const getSchedule = (dateString) => {
+    const date = new Date(dateString);
     const MM = date.getMonth() + 1;
     const dd = date.getDate();
     const yyyy = date.getFullYear();
@@ -16,6 +21,7 @@ const getPlayer = (PlayerKey) => {
 const requests = {
     fetchSchedule : getSchedule,
     fetchTeam : getTeam,
+    fetchRoster : getRoster,
     fetchPlayer : getPlayer,
 }
 

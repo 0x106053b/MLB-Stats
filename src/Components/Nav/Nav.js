@@ -66,6 +66,7 @@ const Title = styled.h1`
   margin-left : 20px;
   color : white;
   font-size : 20px;
+  font-family : LINESeedKR-Th;
 `;
 
 
