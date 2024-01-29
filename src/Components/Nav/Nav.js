@@ -23,9 +23,8 @@ const Nav = () => {
 
   const refmap = {
     "league" : "League Schedule",
-    "team" : "Team",
-    "players" : "Players",
-    "play-by-play" : "Play by Play"
+    "team" : "Teams",
+    "players" : "Players"
   }
 
   const current = new URL(window.location.href);

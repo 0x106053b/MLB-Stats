@@ -248,7 +248,7 @@ const ContainerSchedule = styled.div`
   display : flex;
   flex-direction : column;
   align-items : center;
-  padding : 12px 80px;
+  padding : 20px 80px 40px 80px;
   background-color : #ECECEC;
 `;
 

@@ -5,6 +5,7 @@
 }
 
 .arrow__left:hover{
+    font-family : "LINESeedKR-bd";
     transform : scale(1.5);
     color : #000814;
 }
@@ -16,6 +17,7 @@
 }
 
 .arrow__right:hover{
+    font-family : "LINESeedKR-bd";
     transform : scale(1.5);
     color : #000814;
 }
@@ -68,7 +70,7 @@
 
 .team_name:hover{
     transform : translateX(3px);
-    color : #000814;
+    color : #003566;
 }
 
 @media screen and (max-width : 900px) {
