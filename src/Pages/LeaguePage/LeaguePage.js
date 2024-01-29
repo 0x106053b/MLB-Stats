@@ -119,6 +119,25 @@ const LeaguePage = () => {
     else { return TimeHandling(game.gameDate) }
   }
 
+  const TeamPageHandling = (team) => {
+    try{
+      window.location.href = `https://www.mlb.com/${TeamKey[team].small}/schedule/`
+    } catch (error){
+      return window.location.href
+    }
+  }
+
+  const PlayboardHandling = (game, date) => {
+    try{
+      const away = TeamKey[game.teams.away.team.name].playname;
+      const home = TeamKey[game.teams.home.team.name].playname;
+      const gameCode = game.gamePk;
+      window.location.href = `https://www.mlb.com/gameday/${away}-vs-${home}/${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}/${gameCode}/preview`;
+    } catch (error) {
+      alert("Oops! The page is not available")
+    }
+  }
+
   return (
     <Container
       variants={AppAni}
@@ -137,8 +156,9 @@ const LeaguePage = () => {
         {fromTodays.map((day, index) => {
           if (schedule[parseInt(index)].totalGames === 0) {
             return (
-              <Schedule>
-                <p className="date">{getDayofWeek(day) + ` `}
+              <Schedule key={day}>
+                <p className="date">
+                  <span className="date_name">{getDayofWeek(day) + ` `}</span>
                   <span>{`${day.getDate()} ${day.toLocaleDateString('en-us', { month: "short" })}`}</span>
                 </p>
                 <Games>
@@ -151,9 +171,10 @@ const LeaguePage = () => {
           }
           else {
             return (
-              <Schedule>
-                <p className="date">{getDayofWeek(day) + ` `}
-                  <span>{`${day.getDate()} ${day.toLocaleDateString('en-us', { month: "short" })}`}</span>
+              <Schedule key={day}>
+                <p className="date">
+                  <span className="date_name">{getDayofWeek(day) + ` `}</span>
+                  <span>{`${day.getDate()} ${day.toLocaleDateString('en-us', { month: "long" })}`}</span>
                 </p>
                 <Games>
                   {schedule[parseInt(index)].dates[0].games.map((game) => {
@@ -161,13 +182,19 @@ const LeaguePage = () => {
                       <div>
                         <Game>
                           <span className="team">
-                            <div className="away">
-                              <img className="team_logo" src={LogoHandling(game.teams.away.team.name)} alt="away team" />
+                            <div className="away" 
+                                  onClick={() => {TeamPageHandling(game.teams.away.team.name)}}>
+                              <img className="team_logo" 
+                                    src={LogoHandling(game.teams.away.team.name)} 
+                                    alt="away team" />
                               <p className="team_name">{TeamHandling(game.teams.away.team.name)}</p>
                             </div>
                             <span className="vs">vs</span>
-                            <div className="home">
-                              <img className="team_logo" src={LogoHandling(game.teams.home.team.name)} alt="home team" />
+                            <div className="home" 
+                                  onClick={() => {TeamPageHandling(game.teams.home.team.name)}}>
+                              <img className="team_logo" 
+                                    src={LogoHandling(game.teams.home.team.name)} 
+                                    alt="home team" />
                               <p className="team_name">{TeamHandling(game.teams.home.team.name)}</p>
                             </div>
                           </span>
@@ -177,6 +204,10 @@ const LeaguePage = () => {
                           <div className="venue">
                             <p>{game.venue.name}</p>
                           </div>
+                          <img className="move_to_play" 
+                              src="/images/rightarrow.png"
+                              alt="move to playboard"
+                              onClick={() => PlayboardHandling(game, day)}></img>
                         </Game>
                       </div>
                     )

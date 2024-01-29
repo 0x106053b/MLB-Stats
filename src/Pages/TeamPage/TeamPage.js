@@ -21,9 +21,9 @@ const Container = styled(motion.div)`
   position : relative;
   overflow-x : hidden;
   display : block;
-  box-sizing : border-box;
-  background-color : #000814;
-  top : 100px;
-  height : calc(100vh-100px);
+  background-color : white;
+  top : 60px;
   margin : 0;
-  padding : 0;`;
+  padding-top : 35px;`;
+
+  

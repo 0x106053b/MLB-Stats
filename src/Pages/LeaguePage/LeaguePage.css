@@ -32,6 +32,10 @@
     font-family : "LINESeedKR-Rg";
 }
 
+.date_name{
+    font-family : "LINESeedKR-Bd";
+}
+
 .no_game{
     font-family : "LINESeedKR-th";
     width : 100%;
@@ -48,7 +52,7 @@
 
 .vs{
     font-family : "LINESeedKR-th";
-    margin : 0px 20px;
+    margin : 0px 13px;
 }
 
 .team_logo{
@@ -59,6 +63,35 @@
 
 .team_name{
     min-width : 170px;
+    transition : all ease-in-out 400ms;
+}
+
+.team_name:hover{
+    transform : translateX(3px);
+    color : #000814;
+}
+
+@media screen and (max-width : 900px) {
+    .away {
+        min-width : auto !important;
+    }
+    .home{
+        min-width : auto !important;
+        margin-left : 0 !important;
+    }
+    .team_name{
+        min-width : auto !important;
+    }
+    .team{
+        width : auto !important;
+        margin : 0px 30px;
+    }
+    .game_time {
+        width : 105px !important;
+    }
+    .game_time p {
+        width : 100px;
+    }
 }
 
 .away{
@@ -75,8 +108,8 @@
     flex-direction : row;
     align-items : center;
     justify-content: flex-start;
-    width : 120px;
-    margin-left : 50px;
+    min-width : 120px;
+    margin-left : 35px;
 }
 
 .game_time {
@@ -90,4 +123,17 @@
     font-size : 0.8em;
     padding : 0;
     color : darkgray;
+}
+
+.move_to_play {
+    width : 50px;
+    opacity : 0.5;
+    margin-left : auto;
+    margin-right : 20px;
+    transition : all ease-in-out 400ms;
+}
+
+.move_to_play:hover{
+    opacity : 0.9;
+    transform : translateX(5px);
 }
