@@ -33,8 +33,7 @@ const MainPage = () => {
       <MenuBar>
         <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate(`/league?date=${date.MM}-${date.dd}-${date.yyyy}`) }}>League Schedule</motion.h4></Menu>
         <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/team") }}>30 MLB Teams</motion.h4></Menu>
-        <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/players") }}>Players</motion.h4></Menu>
-        {/* <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/play-by-play") }}>Play by Play</motion.h4></Menu> */}
+        <Menu><motion.h4 variants={show} initial="initial" animate="finally" onClick={() => { navigate("/news") }}>News</motion.h4></Menu>
       </MenuBar>
     </MainContainer>
   )

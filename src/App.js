@@ -5,8 +5,8 @@ import './App.css'
 import LeaguePage from './Pages/LeaguePage/LeaguePage';
 import Nav from './Components/Nav/Nav'
 import TeamPage from './Pages/TeamPage/TeamPage';
-import PlayerPage from './Pages/PlayerPage/PlayerPage';
 import { AnimatePresence } from 'framer-motion';
+import NewsPage from './Pages/NewsPage/NewsPage';
 
 
 const MainLayout = () => {
@@ -38,7 +38,7 @@ const App = () => {
           <Route element={<MenuLayout />}>
             <Route path="/league" element={<LeaguePage />}></Route>
             <Route path="/team" element={<TeamPage />} />
-            <Route path="/players" element={<PlayerPage />} />
+            <Route path="/news" element={<NewsPage />} />
           </Route>
         </Routes>
       </AnimatePresence>

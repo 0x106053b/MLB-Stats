@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components'
 import AppAni from './../../Animation/AppAni';
 import { useLocation, useNavigate } from 'react-router-dom';
-import instance from './../../Api/axios';
+import instance from '../../Api/axios';
 import "./LeaguePage.css"
-import requests from './../../Api/requests';
+import requests from '../../Api/requests';
 import TeamKey from './TeamKey';
 
 

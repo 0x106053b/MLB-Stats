@@ -24,7 +24,7 @@ const Nav = () => {
   const refmap = {
     "league" : "League Schedule",
     "team" : "Teams",
-    "players" : "Players"
+    "news" : "MLB News"
   }
 
   const current = new URL(window.location.href);
