@@ -5,10 +5,9 @@ import styled from 'styled-components';
 import "./NewsPage.css"
 import AppAni from '../../Animation/AppAni';
 
+
 const NewsPage = () => {
-
     const [news, setNews] = useState([]);
-
     const fetchNewsdata = async (word, date, sortBy, apiKey) => {
         // const request = await instanceNews(requestsNews.fetchNews(word, date, sortBy, apiKey));
         const params = { q: word, to: date, sortBy: sortBy, apiKey: apiKey, language: "en" };
@@ -40,7 +39,8 @@ const NewsPage = () => {
         const date = new Date();
         date.setDate(date.getDate() + 1);
         const dateFormat = dateConverter(date);
-        fetchNewsdata("MLB", dateFormat, "publishedAt", "f3cfbbdec0de4d7a8030ecca07498428");
+        const apikey = process.env.REACT_APP_APIKEY;
+        fetchNewsdata("MLB", dateFormat, "publishedAt", apikey);
     }, [])
 
     return (
@@ -54,7 +54,8 @@ const NewsPage = () => {
             <FlexContainer>
                 {news &&
                     news.map((article) => (
-                        <News className="news">
+                        <News className="news"
+                            onClick={() => {window.location.href = `${article.url}`}}>
                             <p className="grid news_title">{article.title}</p>
                             <img className="grid news_thumbnail" src={article.urlToImage} alt="News ThumbNail"/>
                             <p className="grid news_author">
