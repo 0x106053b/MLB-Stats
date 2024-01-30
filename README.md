@@ -26,10 +26,10 @@
 <br><br>
 ![TeamPage](https://github.com/0x106053b/MLB-glimpse/assets/151544588/6b4ae057-c615-47b2-8652-ab79826d1ff2)
 <li>(2024년 1월 기준) MLB 리그의 30개 팀 정보 페이지입니다.</li>
-<li>구단 공식 홈페이지, 구단 경기 스케줄 페이지로 이동 가능합니다.</li>
-<li>실시간 구단별 로스터 정보를 확인할 수 있습니다.</li>
+<li><b>구단 공식 홈페이지, 구단 경기 스케줄 페이지</b>로 이동 가능합니다.</li>
+<li><b>실시간 구단별 로스터</b> 정보를 확인할 수 있습니다.</li>
 
 <br><br>
 ![NewsPage](https://github.com/0x106053b/MLB-glimpse/assets/151544588/89a31bea-8a12-40ff-bab5-aa1c948efd3a)
-<li>NEWSAPI를 이용해 영미권 신문사들로부터 "MLB" 키워드로 검색한 기사를 최신순으로 불러옵니다.</li>
+<li><b>NEWSAPI</b>를 이용해 영미권 신문사들로부터 "MLB" 키워드로 검색한 기사를 <b>최신순</b>으로 불러옵니다.</li>
 <li>기사 클릭 시 원문으로 이동합니다.</li>
