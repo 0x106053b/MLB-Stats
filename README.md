@@ -2,8 +2,9 @@
 ### MLB API, NEWSAPI를 활용한 MLB 리그 정보 톺아보기
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"> 
-<br><br><br>
+<br><br>
 
+https://mlb-glimpse.vercel.app/main
 
 # 🚀 프로젝트 개요
 <li><b>React</b> 문법 및 <b>CSS Layout</b> (Flex, Grid 등) 연습을 위한 토이 프로젝트입니다.</li>
